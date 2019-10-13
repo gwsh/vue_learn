@@ -1,0 +1,63 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-12 10:45:10
+ * @LastEditTime: 2019-10-12 11:07:03
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #app {
+            width: 200px;
+            margin: 100px auto;
+        }
+        #app li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputValue" />
+        <button v-on:click="handleBtnClick">提交</button>
+        <ul>
+            <li v-for="item in list">{{item}}</li>
+        </ul>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: [],
+                inputValue: ''
+            },
+            methods: {
+                handleBtnClick: function () {
+                    if (this.inputValue == undefined || this.inputValue == '') {
+                        alert("请输入值");
+                        return false;
+                    } else {
+                        this.list.push(this.inputValue);
+                        this.inputValue = '';
+                    }
+                }
+            },
+        });
+
+    </script>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: SHUNDONG
  * @Date: 2019-10-12 10:30:40
- * @LastEditTime: 2019-10-12 10:36:14
+ * @LastEditTime: 2019-10-12 10:40:58
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -21,12 +21,18 @@
     <script>
         // let dom = document.getElementById("app");
         // dom.innerHTML = 'Hello World';
+        // setTimeout(function(){
+        //     dom.innerHTML = 'bye world';
+        // },2000);
         let app = new Vue({
             el:'#app',
             data:{
                 content: 'Hello World'
             }
         });
+        setTimeout(function(){
+            app.$data.content = 'bye world';
+        },2000);
     </script>
 </body>
 
