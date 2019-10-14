@@ -1,8 +1,8 @@
 <!--
  * @Description: In User Settings Edit
- * @Author: your name
+ * @Author: shundong
  * @Date: 2019-10-12 10:45:10
- * @LastEditTime: 2019-10-14 11:08:24
+ * @LastEditTime: 2019-10-14 11:42:24
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -18,10 +18,12 @@
             padding: 0;
             margin: 0;
         }
+
         #app {
             width: 200px;
             margin: 100px auto;
         }
+
         #app li {
             list-style: none;
         }
@@ -34,7 +36,11 @@
         <button v-on:click="handleBtnClick">提交</button>
         <ul>
             <!-- <li v-for="item in list">{{item}}</li> -->
-            <todo-item v-bind:content="item" v-for="item in list"></todo-item>
+            <todo-item v-bind:content="item" 
+                       v-bind:index="index"
+                       v-for="(item,index) in list"
+                       @delete="handleItemDelete">
+            </todo-item>
         </ul>
     </div>
     <script src="js/vue.js"></script>
@@ -42,12 +48,18 @@
         // 全局组件
         // Vue.component("TodoItem",{
         //     props: ['content'],
-        //     template:"<li >{{content}}</li>"
+        //     template:"<li>{{content}}</li>"
         // })
         //局部组件
         var TodoItem = {
-            props: ['content'],
-            template: "<li>{{content}}</li>"
+            props: ['content','index'],
+            template: "<li @click='handleItemClike'>{{content}}</li>",
+            methods: {
+                handleItemClike: function () {
+                    //子组件向外触发一个事件
+                    this.$emit("delete",this.index);
+                }
+            }
         }
         var app = new Vue({
             el: '#app',
@@ -67,6 +79,9 @@
                         this.list.push(this.inputValue);
                         this.inputValue = '';
                     }
+                },
+                handleItemDelete: function(index) {
+                    this.list.splice(index,1);
                 }
             },
         });

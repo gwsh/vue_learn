@@ -330,6 +330,179 @@ var TodoItem = {
                 TodoItem: TodoItem
      }
 -->
+案例代码（全）：
+<!--
+ * @Description: In User Settings Edit
+ * @Author: shundong
+ * @Date: 2019-10-12 10:45:10
+ * @LastEditTime: 2019-10-14 11:12:10
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #app {
+            width: 200px;
+            margin: 100px auto;
+        }
+
+        #app li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputValue" />
+        <button v-on:click="handleBtnClick">提交</button>
+        <ul>
+            <!-- <li v-for="item in list">{{item}}</li> -->
+            <todo-item v-bind:content="item" v-for="item in list"></todo-item>
+        </ul>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        // 全局组件
+        // Vue.component("TodoItem",{
+        //     props: ['content'],
+        //     template:"<li >{{content}}</li>"
+        // })
+        //局部组件
+        var TodoItem = {
+            props: ['content'],
+            template: "<li>{{content}}</li>"
+        }
+        var app = new Vue({
+            el: '#app',
+            components: {
+                TodoItem: TodoItem
+            },
+            data: {
+                list: [],
+                inputValue: ''
+            },
+            methods: {
+                handleBtnClick: function () {
+                    if (this.inputValue == undefined || this.inputValue == '') {
+                        alert("请输入值");
+                        return false;
+                    } else {
+                        this.list.push(this.inputValue);
+                        this.inputValue = '';
+                    }
+                }
+            },
+        });
+
+    </script>
+</body>
+
+</html>
+
+```
+
+* 子组件向父组件传值
+
+<font color="red">显然，我们已经学会如何使用两种组件，已经父组件向子组件传值，那么，我们如实现子组件向父组件传值呢？</font>
+
+案例：我们前面实现了input框的内容，click点击之后显示在 li 列表中，那么现在我们的新需求是：
+
+​	我们点击 li 组件的时候，删除指定的li，显然这时候我们要拿到 数组的 一个index索引，且必然需要向父组件传值才能实现？  仔细想一下是不是这样的呀！
+
+实现方法：
+
+```html
+首先我们需要给我们的组件绑定一个click事件(注:此时我用局部组件作为案例，全局写法基本一致)：
+
+组件绑定的写法：
+//局部组件
+        var TodoItem = {
+            props: ['content'],
+            template: "<li @click='handleItemClike'>{{content}}</li>",
+            methods: {
+                handleItemClike: function(){
+                    alert("clike ok ？");
+                }
+            }
+        }
+细心的同学会发现，我的绑定没有使用 v-on:click 实现点击的绑定 而是@click  其实两者是一样的后者是缩写
+ok，我们回到绑定，绑定很简单，
+1.就是在li 标签写上 绑定属性和方法，
+2.然后在组件的配置里面 添加一个 methods的 属性，然后在里面写我们的function 即可
+
+子组件向父组件传值：
+	解析：此时我们再刚才绑定的function 里面向外面触发事件的方式，然后父组件监听这个事件。
+	子组件写法（触发事件）：
+					var TodoItem = {
+            props: ['content'],
+            template: "<li @click='handleItemClike'>{{content}}</li>",
+            methods: {
+                handleItemClike: function(){
+										//子组件向外触发一个事件
+                    this.$emit("delete")
+                }
+            }
+        }
+	父组件写法（接收事件）：
+					解析:下面代码不难看出，我们监听了子组件的 delete方法，并且触发handleItemDelete方法，此时我们还	 需要在父组件的methods里面添加这个方法(Vue实例里面)
+					<todo-item v-bind:content="item" 
+                     v-bind:index="index"
+                     v-for="(item,index) in list"
+                     @delete="handleItemDelete">
+          </todo-item>
+					<!--注：此处@delete和@click一样是  v-on:* 缩写
+					我们还多了v-bind:index="index" 传值个子组件，
+					同时我们在 遍历的时候 多些了一个 遍历 那就是 index(拿到索引传给子组件)
+					-->
+	父组件handleItemDelete方法：
+					此时的Vue实例因该是如下(接受index，然后删除改索引的list数组中的value值)
+					var app = new Vue({
+            el: '#app',
+            components: {
+                TodoItem: TodoItem
+            },
+            data: {
+                list: [],
+                inputValue: ''
+            },
+            methods: {
+                handleBtnClick: function () {
+                    if (this.inputValue == undefined || this.inputValue == '') {
+                        alert("请输入值");
+                        return false;
+                    } else {
+                        this.list.push(this.inputValue);
+                        this.inputValue = '';
+                    }
+                },
+								// delete时间在这里^_^
+                handleItemDelete: function(index) {
+										//删除从改索引开始的 1个元素
+                    this.list.splice(index,1);
+                }
+            },
+        });
+
+					
+
+```
+
+* 粗谈 简写
+
+```javascript
+v-on:*   ->     @:*
+v-bind:* ->      :*
 ```
 
