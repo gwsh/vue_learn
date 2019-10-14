@@ -1,0 +1,44 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: shundong
+ * @Date: 2019-10-14 12:23:34
+ * @LastEditTime: 2019-10-14 12:31:33
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue实例</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div @click="handleClick">{{message}}</div>
+        <item></item>
+    </div>
+    <script>
+        //组件也是 实例
+        Vue.component('item',{
+            template:'<div>hello item</div>'
+        })
+        // 根实例
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                message: 'hello world'
+            },
+            methods: {
+                handleClick: function () {
+                    alert("hello")
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
