@@ -213,5 +213,123 @@ Vue.component("TodoItem",{
             template:"<li >{{content}}</li>"
         })
 <!-- 不难看出 我们再component里面添加了 一个属性  props，该属性是一个数组,我们通过这样的方式拿到content变量 -->
+
+<!-- 案例代码 -->
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-12 10:45:10
+ * @LastEditTime: 2019-10-14 10:48:14
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #app {
+            width: 200px;
+            margin: 100px auto;
+        }
+        #app li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="inputValue" />
+        <button v-on:click="handleBtnClick">提交</button>
+        <ul>
+            <!-- <li v-for="item in list">{{item}}</li> -->
+            <todo-item v-bind:content="item" v-for="item in list"></todo-item>
+        </ul>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        // 全局组件
+        Vue.component("TodoItem",{
+            props: ['content'],
+            template:"<li >{{content}}</li>"
+        })
+        
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: [],
+                inputValue: ''
+            },
+            methods: {
+                handleBtnClick: function () {
+                    if (this.inputValue == undefined || this.inputValue == '') {
+                        alert("请输入值");
+                        return false;
+                    } else {
+                        this.list.push(this.inputValue);
+                        this.inputValue = '';
+                    }
+                }
+            },
+        });
+
+    </script>
+</body>
+</html>
+
+```
+
+* 局部组件的使用
+
+```html
+<!-- 我们刚刚尝试了 全局组件的 ，那么除了全局组件 是否还存在局部组件呢，这是显然的。-->
+
+使用方法：
+
+var TodoItem = {
+	props:['content'],
+	template:"<li >{{content}}</li>"
+}
+<!-- 上面的写法就是定义了一个局部组件，可以看出和我们的全局组件的属性是一样的 那么我们这样就可以使用了嘛？-->
+<!-- 显然这样是不能使用的! 
+		 此时我要使用局部组件，必须在Vue实例里面进行注册！
+-->
+注册方法：
+        var app = new Vue({
+            el: '#app',
+            components: {
+                TodoItem: TodoItem
+            },
+            data: {
+                list: [],
+                inputValue: ''
+            },
+            methods: {
+                handleBtnClick: function () {
+                    if (this.inputValue == undefined || this.inputValue == '') {
+                        alert("请输入值");
+                        return false;
+                    } else {
+                        this.list.push(this.inputValue);
+                        this.inputValue = '';
+                    }
+                }
+            },
+        });
+<!-- 上面代码 发现和我们前面的有何 不同？
+		 没错 就是多了一个属性  components  后面可以采用对象的方式进行 注册
+		 components: {
+                TodoItem: TodoItem
+     }
+-->
+
 ```
 

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-12 10:45:10
- * @LastEditTime: 2019-10-14 10:48:14
+ * @LastEditTime: 2019-10-14 11:08:24
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -40,13 +40,20 @@
     <script src="js/vue.js"></script>
     <script>
         // 全局组件
-        Vue.component("TodoItem",{
+        // Vue.component("TodoItem",{
+        //     props: ['content'],
+        //     template:"<li >{{content}}</li>"
+        // })
+        //局部组件
+        var TodoItem = {
             props: ['content'],
-            template:"<li >{{content}}</li>"
-        })
-        
+            template: "<li>{{content}}</li>"
+        }
         var app = new Vue({
             el: '#app',
+            components: {
+                TodoItem: TodoItem
+            },
             data: {
                 list: [],
                 inputValue: ''
