@@ -1,0 +1,51 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-15 14:06:49
+ * @LastEditTime: 2019-10-15 14:24:35
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class和对象绑定</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .activated {
+            color: red;
+        }
+        .activated-one {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- class的对象绑定 -->
+        <div @click="handleDivClick" :class="[activated,activatedOne]">
+            hello world
+        </div>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                activated: "",
+                activatedOne: "activated-one"
+            },
+            methods: {
+                handleDivClick: function () {
+                    this.activated = this.activated === "activated" ? "" : "activated";
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
