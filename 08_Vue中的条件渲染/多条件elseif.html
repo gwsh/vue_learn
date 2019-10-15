@@ -1,0 +1,53 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-15 14:53:57
+ * @LastEditTime: 2019-10-15 15:08:08
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if 多条件</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .topDivCss {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #fff;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" :class="topDiv">
+        <h3>在输入框中输入a、b 或者其他</h3>
+        <input type="text" v-model="inputText">
+        <button @click="handleInputClick">确定</button>
+        <div v-if="show ==='a'">This is A</div>
+        <div v-else-if="show ==='b'">This is B</div>
+        <div v-else>This is others</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                inputText: "",
+                show: 'a',
+                topDiv: "topDivCss"
+            },
+            methods: {
+                handleInputClick: function () {
+                    this.show = this.inputText;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

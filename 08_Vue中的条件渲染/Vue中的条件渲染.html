@@ -1,0 +1,45 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-15 14:41:39
+ * @LastEditTime: 2019-10-15 14:52:23
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中的条件渲染</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-if 直接移除dom  if和 else 必须紧贴  -->
+        <div v-if="show" @click="handleDivClick">{{message}}</div>
+        <div v-else @click="handleDivClick">Bye Wolrd</div>
+        
+        <!-- 而show 不会改变 dom 只是 隐藏 
+        <div v-show="show">{{message}}</div>-->
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                show: false,
+                message: "hello World"
+            },
+            methods: {
+                handleDivClick: function(){
+                    this.show = !this.show;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
