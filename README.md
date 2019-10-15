@@ -8,7 +8,7 @@
  * @Description: In User Settings Edit
  * @Author: SHUNDONG
  * @Date: 2019-10-12 10:30:40
- * @LastEditTime: 2019-10-14 10:57:02
+ * @LastEditTime: 2019-10-15 11:11:44
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -505,5 +505,122 @@ ok，我们回到绑定，绑定很简单，
 ```javascript
 v-on:*   ->     @:*
 v-bind:* ->      :*
+v-text   ->  		{{}}
 ```
+
+## 二、Vue实例
+
+```html
+<!--
+ * @Description: In User Settings Edit
+ * @Author: shundong
+ * @Date: 2019-10-14 12:23:34
+ * @LastEditTime: 2019-10-14 12:31:33
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue实例</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div @click="handleClick">{{message}}</div>
+        <item></item>
+    </div>
+    <script>
+        //组件也是 实例
+        Vue.component('item',{
+            template:'<div>hello item</div>'
+        })
+        // 根实例
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                message: 'hello world'
+            },
+            methods: {
+                handleClick: function () {
+                    alert("hello")
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
+```
+
+## 三、Vue生命周期钩子（函数）
+
+注：此处还有三个未写出
+
+```html
+<!--
+ * @Description: In User Settings Edit
+ * @Author: shundong
+ * @Date: 2019-10-14 12:36:05
+ * @LastEditTime: 2019-10-15 10:30:52
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue实例生命周期函数</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        // 生命周期函数就是vue实例在某一个时间点会自动执行的函数
+        var vm = new Vue({
+            el: '#app',
+            template: '<div>{{test}}</div>',
+            data: {
+                test:'hello world'
+            },
+            beforeCreate: function() {
+                console.log("beforeCreate");
+            },
+            created: function() {
+                console.log("created");
+            },
+            beforeMount: function   () {
+                console.log(this.$el);
+                console.log("beforeMount");
+            },
+            mounted: function() {
+                console.log(this.$el);
+                console.log("mounted");
+            },
+            beforeDestroy: function() {
+                console.log("beforeDestroy");
+            },
+            destroyed: function() {
+                console.log("destroyed");
+            },
+            beforeUpdate: function() {
+                console.log("beforeUpdate");
+            },
+            updated: function() {
+                console.log("Updated");
+            },
+        });
+    </script>
+</body>
+</html>
+```
+
+![Vue 实例生命周期](https://cn.vuejs.org/images/lifecycle.png)
+
+
 
