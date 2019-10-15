@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-15 10:52:34
- * @LastEditTime: 2019-10-15 11:04:37
+ * @LastEditTime: 2019-10-15 11:17:04
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -16,9 +16,9 @@
 </head>
 <body>
     <div id="app">
-        <div>{{name}}</div>
-        <div v-text="name"></div>
-        <div v-html="name"></div>
+        <div>{{name + ' Lee'}}</div>
+        <div v-text="name +' Lee'"></div>
+        <div v-html="name +' Lee'"></div>
 
     </div>
     <script>
@@ -26,7 +26,7 @@
             el: "#app",
             template: "",
             data: {
-                name: "<h1>Dell</h1>"
+                name: "Dell"
             }
         });
     </script>
