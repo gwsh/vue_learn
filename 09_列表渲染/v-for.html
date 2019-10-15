@@ -1,0 +1,38 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-15 15:24:34
+ * @LastEditTime: 2019-10-15 15:29:33
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <ul id="v-for-object">
+        <li v-for="item of items">
+            {{item.name}}
+        </li>
+    </ul>
+    <script>
+        var vm = new Vue({
+            el: "#v-for-object",
+            data: {
+                items: [
+                    { name: "小明" },
+                    { name: "小黑" }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

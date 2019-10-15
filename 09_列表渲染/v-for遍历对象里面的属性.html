@@ -1,0 +1,47 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-15 15:33:28
+ * @LastEditTime: 2019-10-15 15:41:39
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for遍历对象里面的属性</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!--
+                第一个参数是 value值 
+                第二个参数是键名 
+                第三个参数是 索引   
+                注： 变量名可以随意
+            -->
+            <li v-for="(value,name,index) of objs">
+                {{index}} - {{name}} - {{value}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                objs:{
+                    name: "chris",
+                    age: 16,
+                    data: "2019-10-15"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
