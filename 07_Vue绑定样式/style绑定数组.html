@@ -1,40 +1,42 @@
 <!--
  * @Description: In User Settings Edit
  * @Author: your name
- * @Date: 2019-10-15 14:25:03
- * @LastEditTime: 2019-10-15 14:40:24
+ * @Date: 2019-10-15 14:31:25
+ * @LastEditTime: 2019-10-15 14:39:34
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>style 绑定数组改变样式</title>
     <script src="../js/vue.js"></script>
-    
 </head>
+
 <body>
     <div id="app">
-        <div :style="styleObj" @click="handleDivClick">
-            Hello world
+        <div :style="[styleObj, {fontSize: '20px'}]" @click="handleDivClick">
+            hello world
         </div>
     </div>
     <script>
         var vm = new Vue({
-            el: '#app',
+            el: "#app",
             data: {
                 styleObj: {
-                    color: "red",
+                    color: "black"
                 }
             },
             methods: {
-                handleDivClick: function(){
-                    this.styleObj.color = this.styleObj.color === "red" ? "black" : "red";
+                handleDivClick: function () {
+                    this.styleObj.color = this.styleObj.color === "black" ? "red" : "black";
                 }
             },
         });
     </script>
 </body>
+
 </html>
