@@ -8,7 +8,7 @@
  * @Description: In User Settings Edit
  * @Author: SHUNDONG
  * @Date: 2019-10-12 10:30:40
- * @LastEditTime: 2019-10-15 11:11:44
+ * @LastEditTime: 2019-10-19 12:31:25
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -619,7 +619,7 @@ v-text   ->  		{{}}
 </body>
 </html>
 ```
-
+<br/>
 ![Vue 实例生命周期](https://cn.vuejs.org/images/lifecycle.png)
 
 
