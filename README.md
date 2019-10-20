@@ -1,14 +1,14 @@
 # vue
 ## 一、尝鲜
 
-* 1.vue.js实现HelloWorld 2s后变成Bye World
+* 1.vue.js实现HelloWorld 2s后变成Bye World.
 
 ``` javascript
 <!--
  * @Description: In User Settings Edit
  * @Author: SHUNDONG
  * @Date: 2019-10-12 10:30:40
- * @LastEditTime: 2019-10-19 12:31:25
+ * @LastEditTime: 2019-10-20 16:11:10
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
