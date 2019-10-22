@@ -1,0 +1,71 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-22 14:32:25
+ * @LastEditTime: 2019-10-22 14:51:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_demo/10_组件使用细节/父子组件的传值.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子组件的传值</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        #root {
+            width: 200px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <counter @inc="handleIncrease" :count="3"></counter>
+        <counter @inc="handleIncrease" :count="2"></counter>
+        <div>{{total}}</div>
+    </div>
+    <script>
+        var counter = {
+            props: ['count'],
+            data: function () {
+                return {
+                    number: this.count
+                }
+            },
+            template: '<div @click="handleClick">{{number}}</div>',
+            methods: {
+                handleClick: function () {
+                    this.number = this.number + 2;
+                    this.$emit('inc', 2);
+                }
+            },
+        };
+        /**由此可以看出来  父子组件方式如下
+         * 父组件向子组件传值，我们通过属性的方式
+         * 子组件向父组件传值，我们通过的是事件触发的形式来传值
+         * 注意：同时在父子组件传值的时候 有一个单向数据流的规定 子组件不能直接修改父组件传过来的数据 反之则行
+         */
+
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                total: 5
+            },
+            components: {
+                counter: counter
+            },
+            methods: {
+                handleIncrease: function (value) {
+                    this.total += value;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
