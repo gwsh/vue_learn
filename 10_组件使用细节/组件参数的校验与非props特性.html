@@ -1,0 +1,51 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-22 14:53:13
+ * @LastEditTime: 2019-10-22 16:09:42
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_demo/10_组件使用细节/组件参数的校验与非props特性.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件参数的校验与非props特性</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <child content="hell"></child>
+    </div>
+    <script>
+        /**
+          * 什么叫做参数的校验，我们知道 我们常用 父组件向子组件传值 
+          * 这个时候我们可以对父组件传过来的值 做一个约束 这就是组件参数校验
+          */
+        let child = {
+            props: {
+                content: {
+                    type: [String, Number],//限制类型
+                    required: false,//是否允许为空
+                    default: 'defalut value',//默认值
+                    validator: function (value) {
+                        return (value.length >= 5)
+                    }
+                }
+            },
+            template: '<div>{{content}}</div>'
+        };
+        const vm = new Vue({
+            el: '#app',
+            components: {   
+                child: child
+            }
+        });
+    </script>
+</body>
+
+</html>
