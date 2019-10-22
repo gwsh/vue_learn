@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-22 14:53:13
- * @LastEditTime: 2019-10-22 16:09:42
+ * @LastEditTime: 2019-10-22 16:21:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue_demo/10_组件使用细节/组件参数的校验与非props特性.html
@@ -19,7 +19,16 @@
 
 <body>
     <div id="app">
+        <!-- 这种参数的叫做 props特性 
+            dom 结构中 不会显示 content="hell"
+        -->
         <child content="hell"></child>
+
+        <!-- 非props特性   父组件传值了这个属性 但是子组件没有接收
+            此时的 dom 会显示 content="hell" 
+        -->
+
+        
     </div>
     <script>
         /**
