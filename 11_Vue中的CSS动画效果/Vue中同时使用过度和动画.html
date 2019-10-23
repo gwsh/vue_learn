@@ -1,0 +1,90 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-23 17:37:27
+ * @LastEditTime: 2019-10-23 20:16:55
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_demo/11_Vue中的CSS动画效果/Vue中的CSS动画原理.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中同时使用过度和动画</title>
+    <script src="../js/vue.js"></script>
+    <link rel="stylesheet" href="../css/animate.css" />
+    <style>
+        /* @keyframes bounce-in {
+             0% {
+                 transform: scale(0);
+             }
+ 
+             50% {
+                 transform: scale(1.5);
+             }
+ 
+             100% {
+                 transform: scale(1);
+             }
+         }
+ 
+         .fade-enter-active {
+             transform-origin: left center;
+             animation: bounce-in 1s;
+         }
+ 
+         .fade-leave-active {
+             transform-origin: left center;
+             animation: bounce-in 1s reverse;
+         } */
+
+        /*如果你想自定义样式的类名 也是可以的 只需要在 transition里面 添加下面的class即可
+           enter-active-class="指定的类名"
+           leave-active-class="指定的类名"
+         */
+
+
+
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <transition name="fade" 
+            :duration="{enter:5000,leave:10000}"
+            appear 
+            enter-active-class="animated swing fade-enter-active"
+            leave-active-class="animated shake fade-leave-active" appear-active-class="animated swing">
+            <div v-if="show">Hello world</div>
+        </transition>
+        <button @click="handleClick">切换</button>
+
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#root',
+            data: {
+                show: true
+            },
+            methods: {
+                handleClick: function () {
+                    this.show = !this.show
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
