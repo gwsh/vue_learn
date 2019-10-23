@@ -1,20 +1,43 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-23 16:30:01
- * @LastEditTime: 2019-10-23 16:30:04
- * @LastEditors: your name
+ * @LastEditTime: 2019-10-23 16:49:04
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue_demo/10_组件使用细节/在Vue中使用插槽.html
  -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>在Vue中使用插槽</title>
+    <script src="../js/vue.js"></script>
 </head>
+
 <body>
-    
+    <div id="app">
+        <content>
+            <h1 slot="header">header</h1>
+            <h1 slot="footer">footer</h1>
+        </content>
+    </div>
+
+    <script>
+        Vue.component('content', {
+            template: `<div>
+                        <slot name="header">default</slot>
+                        <p>content</p>
+                        <slot name="footer"></slot>
+                       </div>`
+        });
+
+        var vm = new Vue({
+            el: "#app"
+        });
+    </script>
 </body>
+
 </html>

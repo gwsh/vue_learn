@@ -1,0 +1,68 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-23 17:06:12
+ * @LastEditTime: 2019-10-23 17:34:50
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_demo/10_组件使用细节/动态组件与v-once指令.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态组件与v-once指令</title>
+    <script src="../js/vue.js"></script>
+</head>
+<style>
+    #app {
+        width: 200px;
+        margin: auto;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <!-- 需求
+            点击change  我们交替显示 child-one  和 child-two
+            方式一： 用 v-if
+
+            方式二：动态代码
+        -->
+        <!-- 方式一： 条件分支-->
+        <!-- <child-one v-if="type=='child-one'"></child-one>
+        <child-two v-if="type=='child-two'"></child-two> -->
+
+        <!-- 方式二：动态代码 -->
+        <component :is="type"></component>
+
+
+        
+        <button @click="handleClick">change</button>
+    </div>
+
+    <script>
+        // v-once 指令 会将该 dom 存入内存  提高性能
+        Vue.component("child-one", {
+            template: '<div v-once>clild-one</div>'
+        });
+        Vue.component("child-two", {
+            template: '<div v-once>clild-two</div>'
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                type: 'child-one'
+            },
+            methods: {
+                handleClick: function(){
+                    this.type = this.type === 'child-one' ? 'child-two' : 'child-one';
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
