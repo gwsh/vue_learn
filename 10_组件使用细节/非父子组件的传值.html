@@ -1,0 +1,73 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-23 16:08:02
+ * @LastEditTime: 2019-10-23 16:27:28
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_demo/10_组件使用细节/非父子组件的传值.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>非父子组件的传值</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        #app {
+            width: 200px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <child content="Dell"></child>
+        <child content="Lee"></child>
+    </div>
+    <script>
+        /**
+         * 一般有两种：
+         * 第一个  vue-x   暂时不讲
+         * 第二种  发布订阅模式（总线机制/Bus/观察者模式)
+         */
+
+        //在Vue实例上 挂载一个 bus
+        Vue.prototype.bus = new Vue();
+
+
+        Vue.component('child', {
+            data: function () {
+                return {
+                    selfContent: this.content
+                }
+            },
+            props: {
+                content: {
+                    type: [String, Number]
+                }
+            },
+            template: '<div @click="handleClick">{{selfContent}}</div>',
+            methods: {
+                handleClick: function () {
+                    this.bus.$emit('event', this.selfContent);
+                }
+            },
+            mounted: function () {
+                var this_ = this;
+                this.bus.$on('event', function (msg) {
+                    this_.selfContent = msg;
+                });
+            },
+        });
+        let vm = new Vue({
+            el: '#app'
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-23 16:00:38
+ * @LastEditTime: 2019-10-23 16:07:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_demo/10_组件使用细节/给组件绑定原生事件.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>给组件绑定原生事件</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 在这里 我们不是在 子组件中 去绑定 而是在 父组件这里加入一个  修饰符 native -->
+        <child @click.native="handleClick"></child>
+    </div>
+    <script>
+        var child = {
+            template: '<div>Child</div>'
+        };
+
+        var vm = new Vue({
+            el: '#app',
+            components: {
+                child: child
+            },
+            methods: {
+                handleClick: function(){
+                    alert("click");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
