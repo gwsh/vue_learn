@@ -1,0 +1,73 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-24 10:00:53
+ * @LastEditTime: 2019-10-24 10:21:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_demo/11_Vue中的CSS动画效果/Vue中结合Js动画与Velocity.js的结合.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中结合Js动画与Velocity.js的结合</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/velocity.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--
+            入场js动画
+            @before-enter="handleBeforEnter" 
+            @enter="handleEnter" 
+            @after-enter="handleAfterEnter"
+            出场js动画
+            @before-leave="handleBeforEnter" 
+            @leave="handleEnter" 
+            @after-leave="handleAfterEnter"
+
+        -->
+        <transition name="fade" @before-enter="handleBeforEnter" @enter="handleEnter" @after-enter="handleAfterEnter">
+            <div v-show="show">Hello world</div>
+        </transition>
+        <button @click="handleClick">toggle</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            },
+            methods: {
+                handleClick: function () {
+                    this.$data.show = !this.$data.show;
+                },
+                handleBeforEnter: function (el) {
+                    el.style.opacity = 0;
+                    // el.style.color = "red";
+                },
+                handleEnter: function (el, done) {
+                    Velocity(el,
+                        { opacity: 1 },
+                        { duration: 1000, complete: done })
+                    // setTimeout(() => {
+                    //     el.style.color = "green";
+                    // }, 2000)
+                    // setTimeout(() => {
+                    //     done();//被调用后 就是执行完了 会触发一个 afterenter                        
+                    // }, 2000)
+                },
+                handleAfterEnter: function (el) {
+                    // el.style.color = "#000";
+                    console.log("end")
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
