@@ -1,0 +1,65 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-24 10:22:54
+ * @LastEditTime: 2019-10-24 15:29:44
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_demo/11_Vue中的CSS动画效果/Vue多个元素或者组件的过度.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue多个元素或者组件的过度</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <transition name="fade" mode="out-in">
+            <component :is="type"></component>
+            <!-- <child v-if="show"></child>
+            <child-one v-else></child-one> -->
+            <!-- <div v-if="show" key="hello">Hello world</div>
+            <div v-else key="bye">Bye world</div> -->
+        </transition>
+        <button @click="handleClick">toggle</button>
+    </div>
+    <script>
+        Vue.component("child", {
+            template: "<div>child</div>"
+        });
+        Vue.component("child-one", {
+            template: "<div>child-one</div>"
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                // show: true
+                type: "child"
+            },
+            methods: {
+                handleClick: function () {
+                    // this.$data.show = !this.$data.show;
+                    this.type = this.type === 'child' ? 'child-one' : 'child';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
