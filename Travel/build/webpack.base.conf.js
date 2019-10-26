@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-10-25 16:24:33
+ * @LastEditTime: 2019-10-26 14:27:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Travel/build/webpack.base.conf.js
+ */
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -36,6 +44,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'styles': resolve('src/assets/styles'),
     }
   },
   module: {
