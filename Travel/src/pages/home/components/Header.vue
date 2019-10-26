@@ -1,7 +1,7 @@
 <!--
  * @Author: shundong
  * @Date: 2019-10-25 16:55:41
- * @LastEditTime: 2019-10-26 14:28:35
+ * @LastEditTime: 2019-10-26 15:59:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue_demo/Travel/src/pages/home/home.vue
@@ -53,6 +53,7 @@ export default {
             width: 1.24rem
             float: right
             text-align: center
+            margin-left: .04rem
             .arrow-icon
                 font-size: .35rem
                 margin-left: .04rem
