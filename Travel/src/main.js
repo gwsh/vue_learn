@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-10-25 16:24:33
- * @LastEditTime: 2019-10-26 14:59:07
+ * @LastEditTime: 2019-10-26 16:08:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/main.js
@@ -17,6 +17,7 @@ import 'styles/normalize.css'
 import 'styles/border.css'
 import 'styles/reset.css'
 import 'styles/iconfont.css'
+import 'styles/mycss.css'
 import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
