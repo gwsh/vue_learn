@@ -1,12 +1,12 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-25 16:24:33
- * @LastEditTime: 2019-10-28 23:03:12
+ * @LastEditTime: 2019-11-01 11:42:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue_demo/Travel/README.md
  -->
-# travel 项目代码
+# travel 项目代码v1
 
 > A Vue.js project
 
