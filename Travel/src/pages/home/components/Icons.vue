@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 16:11:27
- * @LastEditTime: 2019-10-26 17:35:04
+ * @LastEditTime: 2019-11-08 12:44:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Icons.vue
  -->
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption1">
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -17,6 +17,7 @@
           </div>
         </div>
       </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -25,6 +26,9 @@ export default {
   name: 'HomeIcons',
   data () {
     return {
+      swiperOption1: {
+        pagination: '.swiper-pagination'
+      },
       iconList: [
         {
           id: '0001',
@@ -108,6 +112,14 @@ export default {
 @import '~styles/varibles.styl';
 @import '~styles/mixins.styl';
 
+.icons >>> .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  margin-bottom -12px;
+}
+.icons >>> .swiper-pagination-bullet-active {
+  background: rgb(112,189,201)!important;
+}
 .icons >>> .swiper-container {
   height: 0;
   padding-bottom: 50%;

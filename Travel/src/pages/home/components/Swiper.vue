@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 15:02:15
- * @LastEditTime: 2019-10-26 15:57:58
+ * @LastEditTime: 2019-11-08 12:43:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Swiper.vue
