@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 16:11:27
- * @LastEditTime: 2019-11-10 13:39:33
+ * @LastEditTime: 2019-11-10 14:02:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Icons.vue
@@ -129,6 +129,7 @@ export default {
   overflow: hidden;
   height: 0;
   padding-bottom: 50%;
+  margin-top: .1rem;
   .icon
     position: relative;
     overflow: hidden;
