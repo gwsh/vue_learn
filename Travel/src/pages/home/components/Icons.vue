@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 16:11:27
- * @LastEditTime: 2019-11-08 12:44:34
+ * @LastEditTime: 2019-11-10 13:39:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Icons.vue
@@ -113,9 +113,9 @@ export default {
 @import '~styles/mixins.styl';
 
 .icons >>> .swiper-pagination-bullet {
-  width: 6px;
-  height: 6px;
-  margin-bottom -12px;
+  width:  .12rem;
+  height: .12rem;
+  margin-bottom -.24rem;
 }
 .icons >>> .swiper-pagination-bullet-active {
   background: rgb(112,189,201)!important;
@@ -154,6 +154,6 @@ export default {
       line-height: 0.44rem;
       text-align: center;
       color: $darkColor;
-      font-size: 12px;
+      font-size: .24rem;
       ellipsis()
 </style>

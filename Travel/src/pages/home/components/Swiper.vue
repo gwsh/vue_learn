@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 15:02:15
- * @LastEditTime: 2019-11-08 12:43:26
+ * @LastEditTime: 2019-11-10 13:32:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Swiper.vue
@@ -66,8 +66,8 @@ export default {
 }
 
 .wrapper >>> .swiper-pagination-bullet {
-  width: 6px;
-  height: 6px;
+  width:  .12rem;
+  height: .12rem;
 }
 
 .wrapper {

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-10-25 16:24:33
- * @LastEditTime: 2019-11-08 11:57:55
+ * @LastEditTime: 2019-11-10 11:45:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/config/index.js
@@ -21,7 +21,7 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: '192.168.43.30', // can be overwritten by process.env.HOST
+    host: '127.0.0.1', // can be overwritten by process.env.HOST
     port: 8089, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
