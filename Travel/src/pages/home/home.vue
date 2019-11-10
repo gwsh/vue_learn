@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-25 16:55:41
- * @LastEditTime: 2019-11-10 14:52:02
+ * @LastEditTime: 2019-11-10 15:55:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue_demo/Travel/src/pages/home/home.vue
@@ -22,7 +22,7 @@ import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
-
+import axios from 'axios'
 export default {
   name: 'Home',
   components: {
@@ -31,6 +31,14 @@ export default {
     HomeIcons,
     HomeRecommend,
     HomeWeekend
+  },
+  methods: {
+    getHomeInfo () {
+      axios.get('/api/index.json')
+    }
+  },
+  mounted () {
+    // this.getHomeInfo()
   }
 }
 </script>
