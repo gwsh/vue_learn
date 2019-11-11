@@ -1,18 +1,18 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-25 16:55:41
- * @LastEditTime: 2019-11-10 15:55:33
+ * @LastEditTime: 2019-11-11 18:26:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue_demo/Travel/src/pages/home/home.vue
  -->
 <template>
   <div class="home">
-    <home-header></home-header>
-    <home-swiper></home-swiper>
-    <home-icons></home-icons>
-    <home-recommend></home-recommend>
-    <home-weekend></home-weekend>
+    <home-header :city="city"></home-header>
+    <home-swiper :list="swiperList"></home-swiper>
+    <home-icons :list="iconList"></home-icons>
+    <home-recommend :list="recommendList"></home-recommend>
+    <home-weekend :list="weekendList"></home-weekend>
   </div>
 </template>
 
@@ -32,13 +32,34 @@ export default {
     HomeRecommend,
     HomeWeekend
   },
+  data () {
+    return {
+      city: '',
+      swiperList: [],
+      iconList: [],
+      recommendList: [],
+      weekendList: []
+    }
+  },
   methods: {
     getHomeInfo () {
       axios.get('/api/index.json')
+        .then(this.getHomeInfoSuss)
+    },
+    getHomeInfoSuss (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data_ = res.data
+        this.city = data_.city
+        this.swiperList = data_.swiperList
+        this.iconList = data_.iconList
+        this.recommendList = data_.recommendList
+        this.weekendList = data_.weekendList
+      }
     }
   },
   mounted () {
-    // this.getHomeInfo()
+    this.getHomeInfo()
   }
 }
 </script>

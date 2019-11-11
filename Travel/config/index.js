@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-10-25 16:24:33
- * @LastEditTime: 2019-11-10 11:45:45
+ * @LastEditTime: 2019-11-11 15:24:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/config/index.js
@@ -15,10 +15,17 @@ const path = require('path')
 module.exports = {
   dev: {
 
-    // Paths
+    // Paths webpack-dev-server
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:8089',
+        pathRewrite: {
+          '^/api': '/static/mock'
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: '127.0.0.1', // can be overwritten by process.env.HOST

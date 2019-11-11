@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 16:11:27
- * @LastEditTime: 2019-11-10 14:02:37
+ * @LastEditTime: 2019-11-11 18:18:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Icons.vue
@@ -24,79 +24,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption1: {
         pagination: '.swiper-pagination'
-      },
-      iconList: [
-        {
-          id: '0001',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png',
-          desc: '故宫'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          desc: '北京必游'
-        },
-        {
-          id: '0004',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/a40ee278d67000f2a29d2e20f6a029b3.png',
-          desc: '香山公园'
-        },
-        {
-          id: '0005',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-          desc: '一日游'
-        },
-        {
-          id: '0006',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/67/9a1678221b8e0e02.png',
-          desc: '古北水镇'
-        },
-        {
-          id: '0007',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/338c5b924c5809e8c7b14f60a953c3e2.png',
-          desc: '欢乐谷万圣节'
-        },
-        {
-          id: '0008',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-          desc: '赏红叶'
-        },
-        {
-          id: '0009',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-          desc: '泡温泉'
-        },
-        {
-          id: '0010',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/bf88c62458044ca2ef9d733690eef3fc.png',
-          desc: '优惠券'
-        }
-      ]
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -115,7 +56,7 @@ export default {
 .icons >>> .swiper-pagination-bullet {
   width:  .12rem;
   height: .12rem;
-  margin-bottom -.24rem;
+  margin-bottom -.25rem;
 }
 .icons >>> .swiper-pagination-bullet-active {
   background: rgb(112,189,201)!important;

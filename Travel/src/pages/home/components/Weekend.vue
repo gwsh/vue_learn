@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-10 13:47:33
- * @LastEditTime: 2019-11-10 15:04:03
+ * @LastEditTime: 2019-11-11 18:25:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Recommend.vue
@@ -10,7 +10,7 @@
   <div>
     <div class="recommend-title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="(item,index) of recommendList" :key="index">
+      <li class="item border-bottom" v-for="(item,index) of list" :key="index">
         <div class="item-img-wrapper">
             <img class="item-img" :src="item.imgUrl" />
         </div>
@@ -25,9 +25,12 @@
 <script>
 export default {
   name: 'HomeWeekend',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      recommendList: [
+      weekendList: [
         {
           id: '0001',
           imgUrl:
@@ -60,7 +63,6 @@ export default {
 .recommend-title
   line-height: 0.8rem;
   background-color: #eee;
-  margin-top: 0.2rem;
   text-indent: 0.2rem;
 .item-img-wrapper
   overflow: hidden;

@@ -1,7 +1,7 @@
 <!--
  * @Author: shundong
  * @Date: 2019-10-25 16:55:41
- * @LastEditTime: 2019-10-26 15:59:01
+ * @LastEditTime: 2019-11-11 18:01:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue_demo/Travel/src/pages/home/home.vue
@@ -15,13 +15,16 @@
         <span class="iconfont search-icon">&#xe632;</span>
         输入城市/景点/游玩主题</div>
     <div class="header-right">
-        城市<span class="iconfont arrow-icon">&#xe612;</span></div>
+        {{this.city}}<span class="iconfont arrow-icon">&#xe612;</span></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 
