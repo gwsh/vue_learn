@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-12 10:32:26
- * @LastEditTime: 2019-11-12 16:43:49
+ * @LastEditTime: 2019-11-12 17:01:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/city/City.vue
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import CityHeader from './components/Header'
 import CitySearch from './components/Search'
 import CityList from './components/List'
@@ -27,6 +28,18 @@ export default {
     CitySearch: CitySearch,
     CityList: CityList,
     CityAlphabet: CityAlphabet
+  },
+  methods: {
+    getCityInfo () {
+      axios.get('/api/city.json')
+        .then(this.handleGetCityInfoSucc)
+    },
+    handleGetCityInfoSucc (res) {
+      console.log(res)
+    }
+  },
+  mounted () {
+    this.getCityInfo()
   }
 }
 </script>

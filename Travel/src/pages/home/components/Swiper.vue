@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 15:02:15
- * @LastEditTime: 2019-11-12 10:10:46
+ * @LastEditTime: 2019-11-12 18:23:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Swiper.vue
@@ -30,7 +30,7 @@ export default {
       swiperOption: {
         pagination: '.swiper-pagination',
         autoplayDisableOnInteraction: false,
-        autoplay: 2000,
+        autoplay: 3500,
         loop: true
       }
     }
