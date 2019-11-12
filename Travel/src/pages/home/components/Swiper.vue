@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 15:02:15
- * @LastEditTime: 2019-11-11 18:13:21
+ * @LastEditTime: 2019-11-12 10:10:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Swiper.vue
  -->
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
       <swiper-slide v-for="item of list" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" alt />
@@ -29,8 +29,15 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
+        autoplayDisableOnInteraction: false,
+        autoplay: 2000,
         loop: true
       }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }

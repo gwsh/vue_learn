@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-26 16:11:27
- * @LastEditTime: 2019-11-11 18:18:30
+ * @LastEditTime: 2019-11-12 09:51:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Icons.vue
  -->
 <template>
   <div class="icons">
-    <swiper :options="swiperOption1">
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -29,8 +29,9 @@ export default {
   },
   data () {
     return {
-      swiperOption1: {
-        pagination: '.swiper-pagination'
+      swiperOption: {
+        pagination: '.swiper-pagination',
+        autoplay: false
       }
     }
   },

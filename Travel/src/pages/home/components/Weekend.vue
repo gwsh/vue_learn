@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-10 13:47:33
- * @LastEditTime: 2019-11-11 18:25:13
+ * @LastEditTime: 2019-11-12 09:49:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/home/components/Recommend.vue
@@ -67,7 +67,7 @@ export default {
 .item-img-wrapper
   overflow: hidden;
   height: 0;
-  padding-bottom: 33.9%
+  padding-bottom: 37.09%
 .item-img
   width: 100%;
 .item-info
