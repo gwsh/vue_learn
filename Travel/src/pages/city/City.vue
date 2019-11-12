@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-12 10:32:26
- * @LastEditTime: 2019-11-12 15:26:45
+ * @LastEditTime: 2019-11-12 16:43:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/city/City.vue
@@ -10,18 +10,23 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
+    <city-list></city-list>
+    <city-alphabet></city-alphabet>
   </div>
 </template>
 
 <script>
 import CityHeader from './components/Header'
 import CitySearch from './components/Search'
-
+import CityList from './components/List'
+import CityAlphabet from './components/Alphabet'
 export default {
   name: 'City',
   components: {
     CityHeader: CityHeader,
-    CitySearch: CitySearch
+    CitySearch: CitySearch,
+    CityList: CityList,
+    CityAlphabet: CityAlphabet
   }
 }
 </script>

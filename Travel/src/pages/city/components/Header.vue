@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-11-12 10:32:26
- * @LastEditTime: 2019-11-12 14:55:16
+ * @LastEditTime: 2019-11-12 16:42:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Travel/src/pages/city/City.vue
@@ -20,7 +20,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-  @import '~styles/varibles.styl';
+  @import '~styles/varibles.styl'
   .header
     overflow hidden
     position relative
