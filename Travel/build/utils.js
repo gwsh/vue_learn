@@ -25,6 +25,7 @@ exports.cssLoaders = function (options) {
   const postcssLoader = {
     loader: 'postcss-loader',
     options: {
+      /* remUnit: 50 ,此处50为可调整的值 */
       sourceMap: options.sourceMap
     }
   }

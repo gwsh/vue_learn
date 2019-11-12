@@ -1,7 +1,7 @@
 <!--
  * @Author: shundong
  * @Date: 2019-10-25 16:55:41
- * @LastEditTime: 2019-11-11 18:01:30
+ * @LastEditTime: 2019-11-12 10:45:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue_demo/Travel/src/pages/home/home.vue
@@ -14,8 +14,10 @@
     <div class="header-input">
         <span class="iconfont search-icon">&#xe632;</span>
         输入城市/景点/游玩主题</div>
+    <router-link to="city">
     <div class="header-right">
         {{this.city}}<span class="iconfont arrow-icon">&#xe612;</span></div>
+    </router-link>
   </div>
 </template>
 
@@ -40,7 +42,7 @@ export default {
             float: left
             .back-icon
                 text-align: center
-                font-size: .2rem
+                font-size: .3rem
         .header-input
             flex: 1
             height .64rem
@@ -53,6 +55,7 @@ export default {
             .search-icon
                 margin-left: .2rem
         .header-right
+            color: #fff
             width: 1.24rem
             float: right
             text-align: center
