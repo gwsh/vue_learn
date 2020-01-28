@@ -1,14 +1,14 @@
 # vue
 ## 一、尝鲜
 
-* 1.vue.js实现HelloWorld 2s后变成Bye World.
+* 1.vue.js实现 HelloWorld 2s后变成Bye World.
 
 ``` javascript
 <!--
  * @Description: In User Settings Edit
  * @Author: gwsh
  * @Date: 2019-10-12 10:30:40
- * @LastEditTime : 2020-01-27 22:06:34
+ * @LastEditTime : 2020-01-28 19:07:16
  * @LastEditors  : gwsh
  -->
 <!DOCTYPE html>
@@ -334,7 +334,7 @@ var TodoItem = {
 案例代码（全）：
 <!--
  * @Description: In User Settings Edit
- * @Author: shundong
+ * @Author: gwsh
  * @Date: 2019-10-12 10:45:10
  * @LastEditTime: 2019-10-14 11:12:10
  * @LastEditors: Please set LastEditors
@@ -513,7 +513,7 @@ v-text   ->  		{{}}
 ```html
 <!--
  * @Description: In User Settings Edit
- * @Author: shundong
+ * @Author: gwsh
  * @Date: 2019-10-14 12:23:34
  * @LastEditTime: 2019-10-14 12:31:33
  * @LastEditors: Please set LastEditors
@@ -564,7 +564,7 @@ v-text   ->  		{{}}
 ```html
 <!--
  * @Description: In User Settings Edit
- * @Author: shundong
+ * @Author: gwsh
  * @Date: 2019-10-14 12:36:05
  * @LastEditTime: 2019-10-15 10:30:52
  * @LastEditors: Please set LastEditors
