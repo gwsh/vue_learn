@@ -8,7 +8,7 @@
  * @Description: In User Settings Edit
  * @Author: gwsh
  * @Date: 2019-10-12 10:30:40
- * @LastEditTime : 2020-01-28 19:07:16
+ * @LastEditTime : 2020-01-29 23:27:55
  * @LastEditors  : gwsh
  -->
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
 <body>
     <div id="app">{{content}}</div>
     <script>
-    		//传统写法
+    	//传统写法
         // let dom = document.getElementById("app");
         // dom.innerHTML = 'Hello World';
         // setTimeout(function(){
